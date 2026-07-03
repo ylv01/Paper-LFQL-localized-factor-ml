@@ -1,0 +1,58 @@
+{
+  "project": "LFQL CSI1000 localized factor ML",
+  "index_code": "000852.XSHG",
+  "experiment_start": "2021-01-01",
+  "experiment_end": "2026-07-01",
+  "snapshot_frequency": "weekly",
+  "model_feature_contract": {
+    "numeric_feature_count": 21,
+    "industry_dummy_count": 32,
+    "total_feature_count": 53,
+    "numeric_features": [
+      "bp",
+      "ep",
+      "sp",
+      "cfp",
+      "reversal_5d",
+      "momentum_60d",
+      "volatility_20d",
+      "volatility_60d",
+      "skewness_60d",
+      "turnover_rate",
+      "avg_money_20d",
+      "money_volatility_20d",
+      "avg_volume_20d",
+      "log_total_mv",
+      "log_circ_mv",
+      "roa",
+      "gross_profit_margin",
+      "net_profit_margin",
+      "revenue_yoy",
+      "operating_cash_flow_to_total_assets",
+      "debt_to_assets"
+    ]
+  },
+  "tracked_lightweight_files": [
+    "calendar.csv",
+    "rebalance_calendar.csv",
+    "stock_master.csv",
+    "benchmark.csv"
+  ],
+  "local_raw_files": [
+    "csi1000_membership.csv",
+    "daily_bar.csv",
+    "daily_bar_pre.csv",
+    "trade_status.csv",
+    "daily_basic.csv",
+    "financial_pit.csv",
+    "industry_pit.csv"
+  ],
+  "timing_rules": {
+    "signal_generation": "Signal uses information available by signal_date close.",
+    "execution": "Earliest trade occurs at trade_date open.",
+    "technical_features_and_labels": "Use local daily_bar_pre.csv.",
+    "trading_feasibility": "Use local daily_bar.csv and trade_status.csv.",
+    "membership": "Use historical CSI1000 membership by date.",
+    "financial_features": "Use local financial PIT snapshots keyed by asof_date."
+  }
+}

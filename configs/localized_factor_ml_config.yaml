@@ -1,0 +1,32 @@
+﻿experiment: localized_factor_ml
+protocol_status: exploratory
+random_seed: 20260703
+paths:
+  feature_panel: data/processed/feature_panel.parquet
+  output_root: outputs/localized_factor_ml
+periods:
+  A: {start: 2021-01-01, end: 2021-12-31}
+  B: {start: 2022-01-01, end: 2022-12-31}
+  C: {start: 2023-01-01, end: 2023-12-31, train_end: 2023-09-30, validation_start: 2023-10-01}
+  D: {start: 2024-01-01, end: 2026-07-01}
+threshold_center:
+  source_period: B
+  candidate_percentiles: [10, 20, 30, 40, 50, 60, 70, 80, 90]
+  selection_rule: "highest 2022 high-minus-low weekly LS IR, then mean LS return, then balanced coverage, then lower percentile"
+local_training:
+  half_width: 0.15
+  lower: "Q2021(max(0, p_star - 0.15))"
+  upper: "Q2021(min(1, p_star + 0.15))"
+core_evaluation:
+  half_width: 0.03
+  lower: "Q2021(max(0, p_star - 0.03))"
+  upper: "Q2021(min(1, p_star + 0.03))"
+model:
+  type: lightgbm
+  numeric_feature_count: 21
+  industry_dummy_count: 32
+  total_feature_count: 53
+  hyperparameter_configs: 12
+bootstrap:
+  block_length_weeks: 4
+  repetitions: 2000
