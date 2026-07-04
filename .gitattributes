@@ -1,0 +1,7 @@
+data/industry_pit.csv filter=lfs diff=lfs merge=lfs -text
+data/csi1000_membership.csv filter=lfs diff=lfs merge=lfs -text
+data/daily_bar.csv filter=lfs diff=lfs merge=lfs -text
+data/daily_bar_pre.csv filter=lfs diff=lfs merge=lfs -text
+data/trade_status.csv filter=lfs diff=lfs merge=lfs -text
+data/daily_basic.csv filter=lfs diff=lfs merge=lfs -text
+data/financial_pit.csv filter=lfs diff=lfs merge=lfs -text
