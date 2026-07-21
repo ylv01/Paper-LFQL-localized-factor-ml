@@ -1,5 +1,5 @@
-﻿# LFQL Localized Factor ML
-
+﻿# LFQL Localized Factor Model vs Global Machine Learning Model
+![项目截图](a966d772-88dd-4a29-bea3-253323777dc0.png)
 This repository contains a zero-history localized factor machine-learning framework for CSI1000 research. The framework uses 21 numeric factors and runtime industry one-hot columns for a 53-column LightGBM design matrix.
 
 ## Repository Contents
